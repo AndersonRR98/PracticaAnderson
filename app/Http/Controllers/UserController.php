@@ -35,7 +35,7 @@ class UserController extends Controller
 
         $user = User::create($validated);
 
-        return response()->json(['message' => 'Egresado creado correctamente', 'user' => $user]);
+        return response()->json(['message' => 'Usuario creado correctamente', 'user' => $user]);
     }
 
     // MOSTRAR un user específico
