@@ -15,19 +15,19 @@ Route::get('/orm/images', [OrmController::class, 'imagesRelations']);
 // rutas del crud 
 
 
-//Route::resource('users', UserController::class);  // con esta se llaman todos 
+Route::resource('users', UserController::class);  // con esta se llaman todos 
 
- Route::get('/users', [UserController::class, 'index']);
-// // Crear formulario
- Route::get('/users/create', [UserController::class, 'create']);
-// // Guardar nuevo usuario
- Route::post('/users', [UserController::class, 'store']);
-// // Mostrar usuario específico (JSON)
- Route::get('/users/{user}', [UserController::class, 'show']);
-// // Editar formulario
- Route::get('/users/{user}/edit', [UserController::class, 'edit']);
-// // Actualizar usuario
- Route::put('/users/{user}', [UserController::class, 'update']);
- // Eliminar usuario (JSON)
- Route::delete('/users/{user}/borrar', [UserController::class, 'destroy']);
+//  Route::get('/users', [UserController::class, 'index']);
+// // // Crear formulario
+//  Route::get('/users/create', [UserController::class, 'create']);
+// // // Guardar nuevo usuario
+//  Route::post('/users', [UserController::class, 'store']);
+// // // Mostrar usuario específico (JSON)
+//  Route::get('/users/{user}', [UserController::class, 'show']);
+// // // Editar formulario
+//  Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+// // // Actualizar usuario
+//  Route::put('/users/{user}', [UserController::class, 'update']);
+//  // Eliminar usuario (JSON)
+//  Route::delete('/users/{user}/borrar', [UserController::class, 'destroy']);
 

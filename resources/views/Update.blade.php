@@ -41,7 +41,7 @@
     <hr>
 
     <!-- Formulario para eliminar -->
-    <form action="/users/{{ $user->id }}/borrar" method="POST" style="margin-top:10px;">
+    <form action="/users/{{ $user->id }}" method="POST" style="margin-top:10px;">
         @csrf
         @method('DELETE')
         <button type="submit" style="background-color:red; color:white;">Eliminar Usuario</button>
