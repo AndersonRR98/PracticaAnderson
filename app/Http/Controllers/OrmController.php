@@ -90,4 +90,6 @@ class OrmController extends Controller
         $images = Image::with('imageable')->get(); // imageable polimórfico
         return response()->json($images);
     }
+
+    
 }

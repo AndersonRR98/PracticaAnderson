@@ -16,7 +16,6 @@ class ComentFactory extends Factory
      *
      * @return array<string, mixed>
      */
-         protected $model=Coment::class;
 
     public function definition(): array
     {

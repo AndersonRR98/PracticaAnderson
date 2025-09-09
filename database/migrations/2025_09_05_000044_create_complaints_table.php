@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->boolean('estado')->default(false);
             $table->text('descripcion_adicional')->nullable();
-           $table->integer('reason_id')->nullable();
-
+            $table->integer('reason_id')->nullable();
+ 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('publication_id')->constrained('publications')->onDelete('cascade');
           

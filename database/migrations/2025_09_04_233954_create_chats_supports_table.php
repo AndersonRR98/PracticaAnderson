@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('chats_supports', function (Blueprint $table) {
             $table->id();
             $table->text('mensaje');
-            $table->unsignedBigInteger('user_id');
             $table->timestamp('fecha_mensaje')->useCurrent();
             $table->boolean('atendido')->default(false);
+                        $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

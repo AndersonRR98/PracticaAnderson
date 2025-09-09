@@ -114,6 +114,29 @@ WHERE id = (
 
 
 
+SELECT users.id, users.nombre, users.email,users.password,
+users.activo,users.rol_id, courses.id,courses.titulo,courses.descripcion,
+courses.precio,courses.instructor_id,courses.category_id 
+FROM users 
+INNER JOIN courses 
+ON users.id = courses.instructor_id;
+
+
+
+SELECT users.id, users.nombre, users.email,users.password,
+users.activo,users.rol_id, courses.id,courses.titulo,courses.descripcion,
+courses.precio,courses.instructor_id,courses.category_id 
+FROM users 
+INNER JOIN courses ON users.id = courses.id;
+
+
+
+SELECT users.id, users.nombre, users.email, users.password,
+users.activo,rol_id, roles.id, roles.nombre, roles.permisos
+FROM users 
+INNER JOIN roles ON users.rol_id = roles.id;
+
+
 
 
 
