@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
              $table->string('titulo', 255);
-            $table->integer('precio')->nullable();
+            $table->decimal('precio')->nullable();
             $table->text('descripcion')->nullable();
             $table->boolean('visibilidad')->default(true);
 
