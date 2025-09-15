@@ -23,7 +23,7 @@ class OrmController extends Controller
             'coments',
             'complaints',
             'images',
-            'publications' // publications_users pivot
+            'publications.category' // publications_users pivot
         ])->get();
 
         return response()->json($users);
@@ -49,7 +49,7 @@ class OrmController extends Controller
         $sellers = Seller::with([
             'publications.coments',
             'publications.complaints',
-            'images'
+            'images.imageable'
         ])->get();
 
         return response()->json($sellers);
@@ -59,8 +59,8 @@ class OrmController extends Controller
     public function comentsRelations()
     {
         $comments = Coment::with([
-            'user',
-            'publication'
+            'user.role',
+            'publication,category'
         ])->get();
 
         return response()->json($comments);
@@ -70,7 +70,7 @@ class OrmController extends Controller
     public function complaintsRelations()
     {
         $complaints = Complaint::with([
-            'user',
+            'user.chats',
             'publication',
         ])->get();
 
@@ -80,7 +80,7 @@ class OrmController extends Controller
     // 6. Traer todos los chats con usuario
     public function chatSupportUsers()
     {
-        $chats = ChatSupport::with('user')->get();
+        $chats = ChatSupport::with('user.publications','user.images')->get();
         return response()->json($chats);
     }
 
