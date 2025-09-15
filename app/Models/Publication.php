@@ -76,6 +76,7 @@ class Publication extends Model
     {
         return $this->belongsToMany(User::class, 'publication_users');
     }
+    
     public function scopeIncluded(Builder $query): void
 {
     $included = request('included');
