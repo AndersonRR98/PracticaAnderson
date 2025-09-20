@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::factory(5)->create();
+        Role::factory(5)->create();  // va en orden de la que no dependa de ninguna 
         Category::factory(5)->create();
         User::factory(10)->create();
         Seller::factory(5)->create();
@@ -33,10 +33,6 @@ class DatabaseSeeder extends Seeder
         PublicationUser::factory(20)->create();
         Coment::factory(20)->create();
         Complaint::factory(20)->create();
-
-
-    
-
         
     }
 }
