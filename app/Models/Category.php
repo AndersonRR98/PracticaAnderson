@@ -14,7 +14,7 @@ class Category extends Model
     protected $fillable = ['categoria'];
 
      protected $allowIncluded=[
-        'publications',
+        'publications',  // relaciones que tiene se pone el nombre de la funcion 
         'publications.users.coments',
         'publications.complaints',
         'publications.images',

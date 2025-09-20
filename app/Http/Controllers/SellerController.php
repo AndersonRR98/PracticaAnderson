@@ -32,9 +32,8 @@ class SellerController extends Controller
         return response()->json($seller, 201);
     }
 
-   public function show($id)
+   public function show(Seller $seller)
     {
-        $seller = Seller::with(['user','publications','images'])->findOrFail($id);
         return response()->json($seller);
     }
 
