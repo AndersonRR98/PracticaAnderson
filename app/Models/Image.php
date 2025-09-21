@@ -37,7 +37,7 @@ class Image extends Model
 
     public function imageable()
     {
-        return $this->morphTo();
+        return $this->morphTo();  // este simpre va aqui en las otras tablas puede ir morphOne(uno) o morpnMany(muchos)
     }
 
     public function scopeIncluded(Builder $query): void
