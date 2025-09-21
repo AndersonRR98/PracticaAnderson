@@ -39,7 +39,7 @@ public function index()
 
    public function show($id)
     {
-        $user = User::with(['user','publications','images'])->findOrFail($id);
+        $user = User::with(['publications','images'])->findOrFail($id);
         return response()->json($user);
     }
 

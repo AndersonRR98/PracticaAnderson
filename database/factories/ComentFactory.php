@@ -22,7 +22,7 @@ class ComentFactory extends Factory
         return [
             'texto' => $this->faker->sentence(),
             'valor_estrella' => $this->faker->numberBetween(1, 5),
-             'publication_id' => Publication::inRandomOrder()->first()?->id,
+            'publication_id' => Publication::inRandomOrder()->first()?->id,
             'user_id' => User::inRandomOrder()->first()?->id,
 
 

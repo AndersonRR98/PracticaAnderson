@@ -38,7 +38,7 @@ class PublicationController extends Controller
 
    public function show($id)
     {
-        $publication = Publication::with(['user','seller','category','coments','complaints','images'])->findOrFail($id);
+        $publication = Publication::with(['users','seller','category','coments','complaints','images'])->findOrFail($id);
         return response()->json($publication);
     }
 
