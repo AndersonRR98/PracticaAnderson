@@ -1,0 +1,165 @@
+consultas sql ddl dml 
+
+1. Seleccionar datos (SELECT)
+
+-- Seleccionar todos los registros de una tabla
+SELECT * FROM empleados;
+
+-- Seleccionar solo algunas columnas específicas
+SELECT nombre, edad FROM empleados;
+
+-- Seleccionar con condiciones (WHERE)
+SELECT * FROM empleados WHERE salario > 50000;
+
+-- Seleccionar registros con condiciones múltiples
+SELECT * FROM empleados WHERE salario > 50000 AND edad < 40;
+
+-- Seleccionar registros ordenados
+SELECT * FROM empleados ORDER BY salario DESC;  -- Orden descendente
+
+-- Seleccionar registros limitados
+SELECT * FROM empleados LIMIT 10;  -- Solo los primeros 10 registros
+
+-- Seleccionar registros con un valor único
+SELECT DISTINCT ciudad FROM empleados;
+
+
+Update actualizar datos
+
+-- Actualizar un solo registro
+UPDATE empleados
+SET salario = 55000
+WHERE id = 1;
+
+-- Actualizar múltiples registros
+UPDATE empleados
+SET salario = salario * 1.1
+WHERE ciudad = 'Madrid';
+
+Eliminar datos 
+
+-- Eliminar un solo registro
+DELETE FROM empleados
+WHERE id = 10;
+
+-- Eliminar múltiples registros
+DELETE FROM empleados
+WHERE salario < 30000;
+
+-- Eliminar todos los registros de una tabla (pero no la tabla)
+DELETE FROM empleados;
+
+Crear tablas 
+
+-- Crear una nueva tabla
+CREATE TABLE empleados (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  edad INT,
+  salario DECIMAL(10, 2),
+  ciudad VARCHAR(50)
+);
+  
+
+Alterar tablas
+ 
+-- Agregar una nueva columna
+ALTER TABLE empleados
+ADD fecha_ingreso DATE;
+
+-- Cambiar el tipo de dato de una columna
+ALTER TABLE empleados
+MODIFY salario DECIMAL(12, 2);
+
+-- Eliminar una columna
+ALTER TABLE empleados
+DROP COLUMN fecha_ingreso;
+
+Eliminar tablas 
+
+-- Eliminar una tabla (¡cuidado! Esto borra la tabla y sus datos)
+DROP TABLE empleados;
+
+Iner join entre tablas 
+
+-- INNER JOIN: Selecciona solo los registros que tienen coincidencias en ambas tablas
+SELECT empleados.nombre, departamentos.nombre
+FROM empleados
+INNER JOIN departamentos ON empleados.departamento_id = departamentos.id;
+
+-- LEFT JOIN: Selecciona todos los registros de la tabla de la izquierda y las coincidencias de la tabla derecha
+SELECT empleados.nombre, departamentos.nombre
+FROM empleados
+LEFT JOIN departamentos ON empleados.departamento_id = departamentos.id;
+
+-- RIGHT JOIN: Selecciona todos los registros de la tabla de la derecha y las coincidencias de la tabla izquierda
+SELECT empleados.nombre, departamentos.nombre
+FROM empleados
+RIGHT JOIN departamentos ON empleados.departamento_id = departamentos.id;
+
+
+Funciones de agregacion
+ 
+-- Contar el número de registros
+SELECT COUNT(*) FROM empleados;
+
+-- Obtener el salario promedio
+SELECT AVG(salario) FROM empleados;
+
+-- Obtener el salario máximo
+SELECT MAX(salario) FROM empleados;
+
+-- Obtener el salario mínimo
+SELECT MIN(salario) FROM empleados;
+
+-- Sumar todos los salarios
+SELECT SUM(salario) FROM empleados;
+
+Group by
+ 
+-- Agrupar empleados por ciudad y calcular el salario promedio por ciudad
+SELECT ciudad, AVG(salario) AS salario_promedio
+FROM empleados
+GROUP BY ciudad;
+
+-- Agrupar por más de una columna
+SELECT ciudad, departamento_id, COUNT(*) AS total_empleados
+FROM empleados
+GROUP BY ciudad, departamento_id;
+
+Subconsultas
+ 
+-- Subconsulta en WHERE
+SELECT nombre, salario
+FROM empleados
+WHERE salario > (SELECT AVG(salario) FROM empleados);
+
+-- Subconsulta en FROM
+SELECT A.nombre, A.salario, B.departamento
+FROM empleados A
+INNER JOIN (SELECT id, departamento FROM departamentos) B ON A.departamento_id = B.id;
+
+Operadores logicos de comparacion 
+
+-- Comparaciones con LIKE
+SELECT * FROM empleados
+WHERE nombre LIKE 'A%';  -- Nombres que comienzan con A
+
+-- Comparaciones con BETWEEN
+SELECT * FROM empleados
+WHERE salario BETWEEN 30000 AND 50000;
+
+-- Comparaciones con IN
+SELECT * FROM empleados
+WHERE ciudad IN ('Madrid', 'Barcelona');
+
+-- Comparaciones con IS NULL
+SELECT * FROM empleados
+WHERE fecha_ingreso IS NULL;
+
+
+Truncate de una tabla
+ 
+eliminar todos los registros de una tabla
+-- Eliminar todos los registros de una tabla
+TRUNCATE TABLE empleados;
